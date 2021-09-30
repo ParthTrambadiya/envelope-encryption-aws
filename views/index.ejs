@@ -1,0 +1,38 @@
+<!--Include Header-->
+<%- include('includes/_header') %>
+<!--Include Header--> 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <a class="navbar-brand" href="#">Envelope Encryption</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Upload</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/download">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <h1 class="text-center mt-4 text-warning">Upload File</h1>
+        <div class="drop-zone mt-5 mb-4 mx-auto">
+            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+            <form method="post" action="/upload/api" id="upload_file" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileUpload" class="drop-zone__input">
+            </form>
+        </div>
+        <button class="my-4 mx-auto text-center uploadBtn" type="submit" form="upload_file" id="uploadBtn">Upload</button>
+    </section>
+<!--Include Footer-->
+<%- include('includes/_footer') %>
+<!--Include Footer--> 
+    <script src="/js/upload.js"></script>
+</body>
+</html>

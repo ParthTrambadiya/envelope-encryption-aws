@@ -1,0 +1,12 @@
+<% for(var i = 0; i < items.length; i++) { %>
+    <tr>
+        <td><%= i+1%></td>
+        <td><%= items[i].id%></td>
+        <td><%= items[i].fileName%></td>
+        <td>
+            <button class="mx-auto downloadBtn download" id="downloadBtn" data-id="<%= items[i].id%>">
+                Download
+            </button>
+        </td>
+    </tr>
+<% } %>
