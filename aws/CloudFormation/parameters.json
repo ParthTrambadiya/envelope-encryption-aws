@@ -1,0 +1,10 @@
+[
+    {
+        "ParameterKey": "S3BucketName",
+        "ParameterValue": ""
+    },
+    {
+        "ParameterKey": "DynamoDBTableName",
+        "ParameterValue": ""
+    }
+]

@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: 'This is envelope encryption stack and this template
+will create S3 bucket, DynamoDB table, and KMS Customer Master Key in KMS'
+
+Parameters:
+  S3BucketName:
+    Type: String
+    Description: 'Enter unique S3 bucket name.'
+  
+  DynamoDBTableName:
+    Type: String
+    Default: envelope-encryption-stack-table
+    Description: Enter DynamoDB Table name.
+  
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+  
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref DynamoDBTableName
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      BillingMode: PAY_PER_REQUEST
+
+  KMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: This is a KMS Customer Master key for Envelope Encryption
+      Enabled: True
+      KeyPolicy: 
+        Version: '2012-10-17'
+        Id: envelope-encryption-key
+        Statement:
+          - Sid: Enable IAM User Permissions
+            Effect: Allow
+            Principal:
+              AWS: !Join 
+                - ''
+                - - 'arn:aws:iam::'
+                  - !Ref 'AWS::AccountId'
+                  - ':root'
+            Action: 'kms:*'
+            Resource: '*'
+      KeySpec: SYMMETRIC_DEFAULT
+      KeyUsage: ENCRYPT_DECRYPT
+
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: S3 Bucket name to use in application environment variable.
+
+  TableName:
+    Value: !Ref DynamoDBTable
+    Description: Table name to use in application environment variable.
+  
+  KMSKeyArn:
+    Value: !GetAtt KMSKey.Arn
+    Description: KMS Key ARN to use in application environment variable.
+
+
