@@ -1,6 +1,6 @@
 # Envelope Encryption in AWS: Explanation, work, and Implementation
 
-This is a small project for envelope encryption is AWS using AWS KMS and AWS SDK. This project is done in HTML, CSS, JQUERY, EJS, NodeJS, ExpressJS, and AWS SDK for NodeJS. o, to deploy and run this small project you need to follow the below steps.
+This is a small project for envelope encryption is AWS using AWS KMS and AWS SDK. This project is done in HTML, CSS, JQUERY, EJS, NodeJS, ExpressJS, and AWS SDK for NodeJS. so, to deploy and run this small project you need to follow the below steps.
 
 ## Prerequisites
 - The node must be installed on your machine.
