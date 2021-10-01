@@ -39,6 +39,7 @@ npm start
 
 ## Test
 Visit the below video for testing.
+https://youtu.be/c77fXWPldMU
 
 ## Cleanup
 After our work clean the CloudFormation stack if we don't need it more. To do that follow the below steps.
