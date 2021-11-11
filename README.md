@@ -57,3 +57,10 @@ aws cloudformation delete-stack --stack-name <stack-name>
 aws kms cancel-key-deletion --key-id <kms-key-arn>
 aws kms schedule-key-deletion --key-id <kms-key-arn> --pending-window-in-days <days>
 ```
+
+
+---
+### Visit the below my blog post:
+<img src="https://miro.medium.com/max/1400/1*XoOidAXAXCA9zvFNeFc9gw.png" width="500" height="300" />
+
+https://enlear.academy/envelope-encryption-in-aws-d1a03eeed7c
